@@ -1,0 +1,20 @@
+<%- include('../shared/head', { pageTitle: 'Your Cars' }) %>
+<link rel="stylesheet" href="/styles/cars.css">
+</head>
+<body>
+  <%- include('../shared/header') %>
+  <main>
+    <h1>Your Cars</h1>
+    <ul id="car-list">
+      <% for (const car of cars) { %>
+        <li>
+          <a href="/cars/<%= car._id %>">
+            <h2><%= car.name %> - <%= car.model %></h2>
+          </a>
+        </li>
+      <% } %>
+    </ul>
+    <a href="/cars/new" class="btn">Add New Car</a>
+  </main>
+  <%- include('../shared/footer') %>
+</body>

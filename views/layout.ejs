@@ -1,0 +1,20 @@
+<%- include('../shared/head', { pageTitle: car.name }) %>
+<link rel="stylesheet" href="/styles/cars.css">
+</head>
+<body>
+  <%- include('../shared/header') %>
+  <main>
+    <h1><%= car.name %> - <%= car.model %></h1>
+    <ul id="service-entries">
+      <% for (const entry of serviceEntries) { %>
+        <li>
+          <p>Date: <%= entry.date %></p>
+          <p>Work Done: <%= entry.workDone %></p>
+          <p>Mileage: <%= entry.mileage %></p>
+        </li>
+      <% } %>
+    </ul>
+    <a href="/cars/<%= car._id %>/service-entries/new" class="btn">Add Service Entry</a>
+  </main>
+  <%- include('../shared/footer') %>
+</body>

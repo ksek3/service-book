@@ -1,0 +1,25 @@
+<%- include('../shared/head', { pageTitle: 'Add Service Entry' }) %>
+<link rel="stylesheet" href="/styles/form.css">
+</head>
+<body>
+  <%- include('../shared/header') %>
+  <main>
+    <h1>Add Service Entry</h1>
+    <form action="/service-entries" method="POST">
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="workDone">Work Done:</label>
+      <textarea id="workDone" name="workDone" rows="4" required></textarea>
+
+      <label for="mileage">Mileage:</label>
+      <input type="number" id="mileage" name="mileage" required>
+
+      <input type="hidden" name="carId" value="<%= car._id %>">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+      <button type="submit" class="btn">Add Entry</button>
+    </form>
+  </main>
+  <%- include('../shared/footer') %>
+</body>
